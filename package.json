@@ -1,0 +1,25 @@
+{
+  "name": "servicioS",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node ./app.js",
+    "dev": "nodemon ./app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.1",
+    "fs": "*",
+    "pdfkit": "^0.12.1",
+    "pdfmake": "^0.2.0",
+    "xlsx": "^0.17.0"
+  }
+}

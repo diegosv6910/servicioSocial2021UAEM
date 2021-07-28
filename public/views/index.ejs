@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Modulo Indice Reprobacion!</title>
+</head>
+
+<body>
+    <h1>Indice De Reprobacion Materia</h1>
+    <p><label>Selecciona un nuevo archivo!</label></p>
+    <input type="file" id="subir_archivo" />
+    <div id="resultado"></div>
+    <script type="text/javascript" src="resources/js/scripts.js"></script>
+    <h3>Selecciona un archivo para generar reporte</h3>
+    <% var index=0; %>
+        <ol>
+            <% for(index; index <=arrayData.length ; index++){ %>
+                <li>
+                    <a href="/reports/<%= arrayData[index] %>"><%= arrayData[index] %></a>
+                </li>
+            <% } %>
+        </ol>
+</body>
+
+</html>
