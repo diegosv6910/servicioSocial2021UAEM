@@ -7,18 +7,12 @@ const app = express();
 path = require('path');
 const fs = require('fs');
 const fileupload = require('express-fileupload');
-const FileController = require('./controllers/FileController');
-const fileController = new FileController();
 
 //Confiiguracion Body-Parser
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(fileupload());
-
-const{
-    readExcel
-} = require('./controllers/ExcelController')
 
 //Comportamientos de rutas
 //Ruta Principal
@@ -27,14 +21,6 @@ app.get('/', function (req, res) {
     var files = fs.readdirSync('./uploads')
     res.render('index', { arrayData: files });
 });
-
-//Ruta post /subir-archivo.
-router.post('/subir-archivo', fileController.subirArchivo);
-
-//Ruta get /reports/:docName
-app.get('/reports/:docName', function (req, res){
-    readExcel(req.params.docName, res);
-})
 
 //Uso de router para los errores y excepciones.
 router.use(function (req, res) {
@@ -45,7 +31,8 @@ router.use(function (req, res) {
 });
 
 //Uso de una ruta como predeterminada.
-app.use('/api', router);
+app.use('/api', require('./routes'));
+app.use('/reports', require('./routes/excel'));
 
 //Configuracion de los directorios estaticos.
 app.use(express.static(__dirname));
