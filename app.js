@@ -22,6 +22,11 @@ app.get('/', function (req, res) {
     res.render('index', { arrayData: files });
 });
 
+app.get('/holaMundo', function (req, res) {
+    console.log('Hola Mundo')
+})
+
+
 //Uso de router para los errores y excepciones.
 router.use(function (req, res) {
     res.status(404).json({
@@ -31,7 +36,7 @@ router.use(function (req, res) {
 });
 
 //Uso de una ruta como predeterminada.
-app.use('/api', require('./routes'));
+app.use('/api', require('./routes/index'));
 app.use('/reports', require('./routes/excel'));
 
 //Configuracion de los directorios estaticos.

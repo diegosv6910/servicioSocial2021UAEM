@@ -8,5 +8,9 @@ const router = express.Router();
 //Ruta post /subir-archivo.
 router.post('/subir-archivo', fileController.subirArchivo);
 
+router.post('/saludo', function() {
+    console.log("Hola")
+})
+
 // exportamos nuestro nuevo router
 module.exports = router;

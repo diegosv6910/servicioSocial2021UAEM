@@ -9,7 +9,8 @@
 </head>
 
 <body>
-    <h1>Indice De Reprobacion Materia</h1>
+    <h1>Generacion de Reportes 1er Semestre Informatica</h1>
+    <h2>Indice De Reprobacion Materia</h2>
     <p><label>Selecciona un nuevo archivo!</label></p>
     <input type="file" id="subir_archivo" />
     <div id="resultado"></div>
@@ -23,6 +24,18 @@
                 </li>
             <% } %>
         </ol>
+    <h2>Calificacion por semestre de un alumno</h2>
+    <p><label>Ingresa la matricula del alumno!</label></p>
+    <input type="text" id="myText">
+    <button type="button" id="search-button">Go</button>
 </body>
 
 </html>
+
+<script type="text/javascript">
+    var searchButton = document.getElementById("search-button");
+    searchButton.addEventListener("click", function () {
+        var x = document.getElementById("myText").value;
+        window.location = `/reports/semestreAlumno/${x}`
+    });
+</script>
