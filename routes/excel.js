@@ -6,6 +6,9 @@ const{
     calificacionGeneralAlumno,
     aprobacionMaterias,
     matriculaGrupo,
+    eficienciaGrupo,
+    desercionGrupo,
+    titulacionGrupo,
 } = require('../controllers/ExcelController')
 
 //Ruta get /reports/:docName
@@ -28,5 +31,19 @@ router.get('/calificacionAlumno/:matricula', function (req, res) {
 router.get('/matricula', function (req, res){
     matriculaGrupo(req, res);
 })
+
+router.get('/eficiencia', function (req, res){
+    eficienciaGrupo(req,res);
+})
+
+router.get('/desercion', function (req, res){
+    desercionGrupo(req,res);
+})
+
+router.get('/titulacion', function (req, res){
+    titulacionGrupo(req,res);
+})
+
+
 
 module.exports = router;

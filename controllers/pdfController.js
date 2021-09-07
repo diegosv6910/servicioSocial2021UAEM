@@ -127,10 +127,104 @@ function createPDFMatricula(indice, semestre, res) {
     doc.end();
 }
 
+function createPDFEficiencia(primer, ultimo, indice, res) {
+    var date = new Date();
+    const doc = new PDFDocument();
+
+    // Pipe its output somewhere, like to a file or HTTP response
+    // See below for browser usage
+    doc.pipe(fs.createWriteStream(`./pdfs/reporteEficiencia.pdf`));
+
+    doc.image('./public/img/logoUaem.png', {
+        fit: [100, 100],
+        align: 'right',
+        valign: 'top'
+    });
+    doc.moveDown();
+    doc.text(`Cuernavaca Morelos a: ${date.toDateString()}`)
+    doc.moveDown();
+    doc.text(`En 1er Semestre ingresaron ${primer} alumnos. En 8vo Semestre terminaron ${ultimo} alumnos.`, {
+        width: 410,
+        align: 'center'
+    }
+    );
+    doc.moveDown();
+    doc.text(`El indice de Eficiencia es de ${indice}.`, {
+        width: 410,
+        align: 'center'
+    }
+    );
+    doc.end();
+}
+
+function createPDFDesercion(primer, ultimo, indice, res) {
+    var date = new Date();
+    const doc = new PDFDocument();
+
+    // Pipe its output somewhere, like to a file or HTTP response
+    // See below for browser usage
+    doc.pipe(fs.createWriteStream(`./pdfs/reporteDesercion.pdf`));
+
+    doc.image('./public/img/logoUaem.png', {
+        fit: [100, 100],
+        align: 'right',
+        valign: 'top'
+    });
+    doc.moveDown();
+    doc.text(`Cuernavaca Morelos a: ${date.toDateString()}`)
+    doc.moveDown();
+    doc.text(`En 1er Semestre ingresaron ${primer} alumnos. En 8vo Semestre terminaron ${ultimo} alumnos.`, {
+        width: 410,
+        align: 'center'
+    }
+    );
+    doc.moveDown();
+    doc.text(`El indice de Desercion es de ${indice}.`, {
+        width: 410,
+        align: 'center'
+    }
+    );
+    doc.end();
+}
+
+function createPDFTitulacion(primer, ultimo, indice, res) {
+    var date = new Date();
+    const doc = new PDFDocument();
+
+    // Pipe its output somewhere, like to a file or HTTP response
+    // See below for browser usage
+    doc.pipe(fs.createWriteStream(`./pdfs/reporteTitulacion.pdf`));
+
+    doc.image('./public/img/logoUaem.png', {
+        fit: [100, 100],
+        align: 'right',
+        valign: 'top'
+    });
+    doc.moveDown();
+    doc.text(`Cuernavaca Morelos a: ${date.toDateString()}`)
+    doc.moveDown();
+    doc.text(`En 1er Semestre ingresaron ${primer} alumnos. Se titularon ${ultimo} alumnos.`, {
+        width: 410,
+        align: 'center'
+    }
+    );
+    doc.moveDown();
+    doc.text(`El indice de Titulacion es de ${indice}.`, {
+        width: 410,
+        align: 'center'
+    }
+    );
+    doc.end();
+}
+
+
 module.exports = {
     createPDFReprobacion,
     createPDFPromedioMatricula,
     createPDFPromedioGeneralMatricula,
     createPDFAprobacion,
     createPDFMatricula,
+    createPDFEficiencia,
+    createPDFDesercion,
+    createPDFTitulacion,
 }

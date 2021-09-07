@@ -155,7 +155,7 @@ function calificacionGeneralAlumno(req, res) {
     }
     var arregloMateriasSemestre = chunkArray(arregloMaterias, 6);
 
-    for (var i = 0; i <= 7; i++) {
+    for (var i = 0; i < 7; i++) {
         for (index = 0; index <= 5; index++) {
             const woorkbook = XLSX.readFile(`./uploads/${i + 1}° SEMESTRE/${arregloMateriasSemestre[i][index]}`);
             const woorkbookSheets = woorkbook.SheetNames;
@@ -205,14 +205,108 @@ function matriculaGrupo(req, res) {
     var arregloMateriasSemestre = chunkArray(arregloMaterias, 6);
     for (var i = 0; i <= 7; i++) {
         console.log(arregloMateriasSemestre[i][1])
-            const woorkbook = XLSX.readFile(`./uploads/${i + 1}° SEMESTRE/${arregloMateriasSemestre[i][0]}`);
-            const woorkbookSheets = woorkbook.SheetNames;
-            const sheet = woorkbookSheets[0];
-            const dataExcel = XLSX.utils.sheet_to_json(woorkbook.Sheets[sheet])
-            var alumnos = dataExcel.length - 3;
-            console.log(alumnos);
-            pdf.createPDFMatricula(alumnos, i, res)
+        const woorkbook = XLSX.readFile(`./uploads/${i + 1}° SEMESTRE/${arregloMateriasSemestre[i][0]}`);
+        const woorkbookSheets = woorkbook.SheetNames;
+        const sheet = woorkbookSheets[0];
+        const dataExcel = XLSX.utils.sheet_to_json(woorkbook.Sheets[sheet])
+        var alumnos = dataExcel.length - 3;
+        pdf.createPDFMatricula(alumnos, i, res)
     }
+    res.redirect('/');
+}
+
+//Funcion para el indice de eficiencia terminal
+function eficienciaGrupo(req, res) {
+    var arregloMaterias = [];
+    for (var i = 1; i < 9; i++) {
+        fs.readdirSync(`./uploads/${i}° SEMESTRE`).forEach(file => {
+            arregloMaterias.push(file);
+        });
+    }
+
+    //Funcion para dividir el arreglo de materias en semestres
+    function chunkArray(myArray, chunk_size) {
+        var results = [];
+        while (myArray.length) {
+            results.push(myArray.splice(0, chunk_size));
+        }
+        return results;
+    }
+    var arregloMateriasSemestre = chunkArray(arregloMaterias, 6);
+    const woorkbook = XLSX.readFile(`./uploads/1° SEMESTRE/${arregloMateriasSemestre[0][0]}`);
+    const woorkbookSheets = woorkbook.SheetNames;
+    const sheet = woorkbookSheets[0];
+    const dataExcel = XLSX.utils.sheet_to_json(woorkbook.Sheets[sheet])
+    var alumnos = dataExcel.length - 3;
+    const woorkbook1 = XLSX.readFile(`./uploads/8° SEMESTRE/${arregloMateriasSemestre[7][0]}`);
+    const woorkbookSheets1 = woorkbook1.SheetNames;
+    const sheet1 = woorkbookSheets1[0];
+    const dataExcel1 = XLSX.utils.sheet_to_json(woorkbook1.Sheets[sheet1])
+    var alumnos1 = dataExcel1.length - 3;
+    var eficiencia = ((alumnos1 / alumnos) * 100)
+    pdf.createPDFEficiencia(alumnos, alumnos1, eficiencia, res)
+    res.redirect('/');
+}
+
+//Funcion para el indice de desercion
+function desercionGrupo(req, res) {
+    var arregloMaterias = [];
+    for (var i = 1; i < 9; i++) {
+        fs.readdirSync(`./uploads/${i}° SEMESTRE`).forEach(file => {
+            arregloMaterias.push(file);
+        });
+    }
+
+    //Funcion para dividir el arreglo de materias en semestres
+    function chunkArray(myArray, chunk_size) {
+        var results = [];
+        while (myArray.length) {
+            results.push(myArray.splice(0, chunk_size));
+        }
+        return results;
+    }
+    var arregloMateriasSemestre = chunkArray(arregloMaterias, 6);
+    const woorkbook = XLSX.readFile(`./uploads/1° SEMESTRE/${arregloMateriasSemestre[0][0]}`);
+    const woorkbookSheets = woorkbook.SheetNames;
+    const sheet = woorkbookSheets[0];
+    const dataExcel = XLSX.utils.sheet_to_json(woorkbook.Sheets[sheet])
+    var alumnos = dataExcel.length - 3;
+    const woorkbook1 = XLSX.readFile(`./uploads/8° SEMESTRE/${arregloMateriasSemestre[7][0]}`);
+    const woorkbookSheets1 = woorkbook1.SheetNames;
+    const sheet1 = woorkbookSheets1[0];
+    const dataExcel1 = XLSX.utils.sheet_to_json(woorkbook1.Sheets[sheet1])
+    var alumnos1 = dataExcel1.length - 3;
+    var eficiencia = ((alumnos1 / alumnos) * 100)
+    var desercion = 100 - eficiencia;
+    pdf.createPDFDesercion(alumnos, alumnos1, desercion, res)
+    res.redirect('/');
+}
+
+//Funcion para el indice de titulacion
+function titulacionGrupo(req, res) {
+    var arregloMaterias = [];
+    for (var i = 1; i < 9; i++) {
+        fs.readdirSync(`./uploads/${i}° SEMESTRE`).forEach(file => {
+            arregloMaterias.push(file);
+        });
+    }
+
+    //Funcion para dividir el arreglo de materias en semestres
+    function chunkArray(myArray, chunk_size) {
+        var results = [];
+        while (myArray.length) {
+            results.push(myArray.splice(0, chunk_size));
+        }
+        return results;
+    }
+    var arregloMateriasSemestre = chunkArray(arregloMaterias, 6);
+    const woorkbook = XLSX.readFile(`./uploads/1° SEMESTRE/${arregloMateriasSemestre[0][0]}`);
+    const woorkbookSheets = woorkbook.SheetNames;
+    const sheet = woorkbookSheets[0];
+    const dataExcel = XLSX.utils.sheet_to_json(woorkbook.Sheets[sheet])
+    var alumnos = dataExcel.length - 3;
+    var titulacion = ((5 / alumnos) * 100).toFixed(2);
+    pdf.createPDFTitulacion(alumnos, 5, titulacion, res)
     res.redirect('/');
 }
 
@@ -223,4 +317,7 @@ module.exports = {
     calificacionGeneralAlumno,
     aprobacionMaterias,
     matriculaGrupo,
+    eficienciaGrupo,
+    desercionGrupo,
+    titulacionGrupo,
 }
