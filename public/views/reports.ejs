@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MATERIAS Y CALIFICACIONES</title>
+    <link rel="stylesheet" href="/public/styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <header>
+        <a class="logo" href="/public/img/logo_.svg"><img src="/public/img/logo_.svg" alt="logo"></a>
+        <nav>
+            <ul class="nav__links">
+                <li><a href="#">Carreras</a></li>
+                <li><a href="index.html">Materias y Calificaciones</a></li>
+                <li><a href="#">Trayectoria escolar</a></li>
+            </ul>
+        </nav>
+        <a class="cta" disabled href="#"></a>
+        <p class="menu cta">Menu</p>
+    </header>
+    <div class="overlay">
+        <a class="close">&times;</a>
+        <div class="overlay__content">
+            <a href="#">Carreras</a>
+            <a href="index.html">Materias y Calificaciones</a>
+            <a href="#">Trayectoria escolar</a>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="card">
+            <div class="left-column background1-left-column">
+                <h6>Periodo: Agosto-Diciembre 2020
+                </h6>
+                <h2>REPORTE</h2>
+                <i class=""></i>
+            </div>
+
+            <div class="right-column">
+                <div>
+
+
+                </div>
+
+                <p>
+                    PROMEDIO GENERAL DE CALIFICACIONES DE CADA ESTUDIANTE POR MATRICULA
+                </p>
+                <div class="search">
+                    <input type="text" id="myText" value="Matricula">
+                    <button type="button" id="search-button"><i class="fa fa-search"></i></button>
+                </div>
+                <button type="button" class="button background1-left-column" id="search-button" onclick="redirect()">Generar</button>
+            </div>
+
+        </div>
+        <div class="card">
+            <div class="left-column background1-left-column">
+                <h6>Periodo: Agosto-Diciembre 2020
+                </h6>
+                <h2>REPORTE</h2>
+                <i class=""></i>
+            </div>
+
+            <div class="right-column">
+                <div>
+
+
+                </div>
+
+                <p>
+                    PROMEDIO CALIFICACIONES DE CADA ESTUDIANTE POR SEMESTRE Y MATRICULA
+                </p>
+                <div class="search">
+                    <input type="text" id="matricula" value="Matricula">
+                    <input type="text" id="semestre" value="semestre">
+                </div>
+                <button type="button" class="button background1-left-column" id="search-button" onclick="redirectSemestre()">Generar</button>
+            </div>
+
+        </div>
+        <div class="card">
+            <div class="left-column background1-left-column">
+                <h6>Periodo: Agosto-Diciembre 2020
+                </h6>
+                <h2>REPORTE</h2>
+                <i class=""></i>
+            </div>
+
+            <div class="right-column">
+                <div>
+
+
+                </div>
+
+                <p>
+                    MATRICULA ESTUDIANTIL POR CADA GRUPO
+                </p>
+                <button class="button background1-left-column">Generar</button>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+    </div>
+    <div class="container">
+
+        <div class="card">
+            <div class="left-column background1-left-column">
+                <h6>Periodo: Agosto-Diciembre 2020
+                </h6>
+                <h2>REPORTE</h2>
+                <i class=""></i>
+            </div>
+
+            <div class="right-column">
+                <div>
+
+
+                </div>
+
+                <p>
+                    NUMERO DE ESTUDIANTES POR SEXO
+                </p>
+                <button class="button background1-left-column">Generar</button>
+            </div>
+
+        </div>
+        <div class="card">
+            <div class="left-column background1-left-column">
+                <h6>Periodo: Agosto-Diciembre 2020
+                </h6>
+                <h2>REPORTE</h2>
+                <i class=""></i>
+            </div>
+
+            <div class="right-column">
+                <div>
+
+
+                </div>
+
+                <p>
+                    NUMERO DE ESTUDIANTES POR EDAD
+                </p>
+                <button class="button background1-left-column">Generar</button>
+            </div>
+
+        </div>
+        <div class="card">
+            <div class="left-column background1-left-column">
+                <h6>Periodo: Agosto-Diciembre 2020
+                </h6>
+                <h2>REPORTE</h2>
+                <i class=""></i>
+            </div>
+
+            <div class="right-column">
+                <div>
+
+
+                </div>
+
+                <p>
+                    INDICE DE REPROBACIÓN DE CADA MATERIA POR GRUPO Y CARRERA.
+                </p>
+                <button class="button background1-left-column">Generar</button>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+    </div>
+    <div class="container">
+
+        <div class="card">
+            <div class="left-column background1-left-column">
+                <h6>Periodo: Agosto-Diciembre 2020
+                </h6>
+                <h2>REPORTE</h2>
+                <i class=""></i>
+            </div>
+
+            <div class="right-column">
+                <div>
+
+
+                </div>
+
+                <p>
+                    INDICE DE APROBACIÓN DE CADA MATERIA POR GRUPO Y CARRERA.
+                </p>
+                <button class="button background1-left-column">Generar</button>
+            </div>
+
+        </div>
+        <div class="card">
+            <div class="left-column background1-left-column">
+                <h6>Periodo: Agosto-Diciembre 2020
+                </h6>
+                <h2>REPORTE</h2>
+                <i class=""></i>
+            </div>
+
+            <div class="right-column">
+                <div>
+
+
+                </div>
+
+                <p>
+                    INDICE DE EFICIENCIA TERMINAL
+                </p>
+                <button class="button background1-left-column">Generar</button>
+            </div>
+
+        </div>
+        <div class="card">
+            <div class="left-column background1-left-column">
+                <h6>Periodo: Agosto-Diciembre 2020
+                </h6>
+                <h2>REPORTE</h2>
+                <i class=""></i>
+            </div>
+
+            <div class="right-column">
+                <div>
+
+
+                </div>
+
+                <p>
+                    INDICE DE DESERCIÓN
+                </p>
+                <button class="button background1-left-column">Generar</button>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+    </div>
+    <div class="container">
+
+        <div class="card">
+            <div class="left-column background1-left-column">
+                <h6>Periodo: Agosto-Diciembre 2020
+                </h6>
+                <h2>REPORTE</h2>
+                <i class=""></i>
+            </div>
+
+            <div class="right-column">
+                <div>
+
+
+                </div>
+
+                <p>
+                    INDICE DE EFICIENCIA DE TITULACIÓN CON RESPECTO AL INGRESO Y AL EGRESO
+                </p>
+                <button class="button background1-left-column">Generar</button>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript">
+    function redirect(){
+        var x = document.getElementById("myText").value;
+        window.location = `/reports/calificacionAlumno/${x}`
+    }
+    function redirectSemestre(){
+        var x = document.getElementById("matricula").value;
+        var s = document.getElementById("semestre").value;
+        window.location = `/reports/semestreAlumno/${s}/${x}`
+    }
+</script>
+
+</html>

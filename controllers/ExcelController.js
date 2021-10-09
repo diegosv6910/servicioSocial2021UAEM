@@ -204,7 +204,6 @@ function matriculaGrupo(req, res) {
     }
     var arregloMateriasSemestre = chunkArray(arregloMaterias, 6);
     for (var i = 0; i <= 7; i++) {
-        console.log(arregloMateriasSemestre[i][1])
         const woorkbook = XLSX.readFile(`./uploads/${i + 1}° SEMESTRE/${arregloMateriasSemestre[i][0]}`);
         const woorkbookSheets = woorkbook.SheetNames;
         const sheet = woorkbookSheets[0];

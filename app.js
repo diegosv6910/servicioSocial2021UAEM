@@ -19,7 +19,7 @@ app.use(fileupload());
 app.get('/', function (req, res) {
     const fs = require('fs');
     var files = fs.readdirSync('./uploads')
-    res.render('index', { arrayData: files });
+    res.render('reports', { arrayData: files });
 });
 
 app.get('/holaMundo', function (req, res) {
