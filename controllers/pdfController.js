@@ -149,7 +149,7 @@ function createPDFEficiencia(primer, ultimo, indice, res) {
     }
     );
     doc.moveDown();
-    doc.text(`El indice de Eficiencia es de ${indice}.`, {
+    doc.text(`El indice de Eficiencia es de ${indice}%.`, {
         width: 410,
         align: 'center'
     }
@@ -179,7 +179,7 @@ function createPDFDesercion(primer, ultimo, indice, res) {
     }
     );
     doc.moveDown();
-    doc.text(`El indice de Desercion es de ${indice}.`, {
+    doc.text(`El indice de Desercion es de ${indice}%.`, {
         width: 410,
         align: 'center'
     }
@@ -209,7 +209,7 @@ function createPDFTitulacion(primer, ultimo, indice, res) {
     }
     );
     doc.moveDown();
-    doc.text(`El indice de Titulacion es de ${indice}.`, {
+    doc.text(`El indice de Titulacion es de ${indice}%.`, {
         width: 410,
         align: 'center'
     }
