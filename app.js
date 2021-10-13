@@ -22,10 +22,9 @@ app.get('/', function (req, res) {
     res.render('reports', { arrayData: files });
 });
 
-app.get('/holaMundo', function (req, res) {
-    console.log('Hola Mundo')
+app.get('/trayectoria', function (req, res) {
+    res.render('trayectoria');
 })
-
 
 //Uso de router para los errores y excepciones.
 router.use(function (req, res) {
