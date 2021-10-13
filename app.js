@@ -26,6 +26,10 @@ app.get('/trayectoria', function (req, res) {
     res.render('trayectoria');
 })
 
+app.get('/login', function(req, res) {
+    res.render('login');  
+})
+
 //Uso de router para los errores y excepciones.
 router.use(function (req, res) {
     res.status(404).json({
